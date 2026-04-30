@@ -6,7 +6,7 @@ import UrlScanForm from '@/components/UrlScanForm'
 import ScanSummary from '@/components/ScanSummary'
 import AssetFilters from '@/components/AssetFilters'
 import AssetGrid from '@/components/AssetGrid'
-import LegalNotice from '@/components/LegalNotice'
+
 import HeroLottie from '@/components/HeroLottie'
 
 export default function Home() {
@@ -172,7 +172,6 @@ export default function Home() {
         {/* Results */}
         {result && (
           <div className="space-y-5">
-            <LegalNotice />
             <ScanSummary result={result} selectedCount={selected.size} />
 
             {/* Toolbar */}
