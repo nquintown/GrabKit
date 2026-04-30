@@ -134,23 +134,14 @@ export function extractAssets(html: string, baseUrl: string): ExtractedAsset[] {
   const defaultFavicon = resolve('/favicon.ico')
   if (defaultFavicon) add(makeAsset('favicon', defaultFavicon, 'default'))
 
-  // ── CSS ───────────────────────────────────────────────────────────────────
+  // ── Fonts (Google Fonts détectés dans les link[stylesheet]) ──────────────
   $('link[rel="stylesheet"]').each((_, el) => {
     const url = resolve($(el).attr('href'))
     if (!url) return
-    // Detect Google Fonts in CSS links — treat as font
     if (url.includes('fonts.googleapis.com') || url.includes('fonts.gstatic.com')) {
       add(makeAsset('font', url, 'link[stylesheet/font]'))
-    } else {
-      add(makeAsset('css', url, 'link[stylesheet]'))
     }
-  })
-
-  // ── JS ────────────────────────────────────────────────────────────────────
-  $('script[src]').each((_, el) => {
-    const url = resolve($(el).attr('src'))
-    if (!url) return
-    add(makeAsset('js', url, 'script[src]'))
+    // CSS ordinaires ignorés
   })
 
   // ── Fonts ─────────────────────────────────────────────────────────────────

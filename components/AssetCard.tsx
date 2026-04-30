@@ -7,27 +7,12 @@ const TYPE_BADGE: Record<AssetType, { label: string; cls: string }> = {
   svg:     { label: 'SVG',   cls: 'bg-violet-100 text-violet-700' },
   image:   { label: 'IMG',   cls: 'bg-blue-100 text-blue-700' },
   favicon: { label: 'ICO',   cls: 'bg-amber-100 text-amber-700' },
-  css:     { label: 'CSS',   cls: 'bg-pink-100 text-pink-700' },
-  js:      { label: 'JS',    cls: 'bg-yellow-100 text-yellow-700' },
   font:    { label: 'FONT',  cls: 'bg-indigo-100 text-indigo-700' },
   media:   { label: 'MEDIA', cls: 'bg-red-100 text-red-700' },
 }
 
 function TypeIcon({ type }: { type: AssetType }) {
   switch (type) {
-    case 'css':
-      return (
-        <svg className="size-8 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path strokeLinecap="round" d="M9 3H5l-1 10h2l.5-5h2L9 13h2L9 3Zm6 0h-2l-1 10h2l.5-5h2L15 13h2L15 3Z" />
-        </svg>
-      )
-    case 'js':
-      return (
-        <svg className="size-8 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <rect x="3" y="3" width="18" height="18" rx="2" />
-          <path strokeLinecap="round" d="M8 17v-6m4 6c0 1-1 1.5-2 1.5M16 11v4c0 1.5-1 2-2 2" />
-        </svg>
-      )
     case 'font':
       return (
         <svg className="size-8 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

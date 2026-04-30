@@ -1,4 +1,4 @@
-export type AssetType = 'svg' | 'image' | 'favicon' | 'css' | 'js' | 'font' | 'media'
+export type AssetType = 'svg' | 'image' | 'favicon' | 'font' | 'media'
 
 export interface ExtractedAsset {
   id: string

@@ -8,7 +8,7 @@ export async function createAssetsZip(assets: ExtractedAsset[]): Promise<Buffer>
   const limited = assets.slice(0, MAX_ASSETS)
   const zip = new JSZip()
   const readme: string[] = [
-    'AssetGobbler — Export d\'assets',
+    'GrabKit — Export d\'assets',
     '=================================',
     `Exporté le : ${new Date().toLocaleString('fr-FR')}`,
     '',
@@ -50,7 +50,7 @@ export async function createAssetsZip(assets: ExtractedAsset[]): Promise<Buffer>
       const timer = setTimeout(() => ctrl.abort(), 10_000)
       const res = await fetch(asset.url, {
         signal: ctrl.signal,
-        headers: { 'User-Agent': 'AssetGobbler/1.0' },
+        headers: { 'User-Agent': 'GrabKit/1.0' },
       })
       clearTimeout(timer)
 

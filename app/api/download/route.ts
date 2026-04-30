@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       status: 200,
       headers: {
         'Content-Type': 'application/zip',
-        'Content-Disposition': 'attachment; filename="assetgobbler-export.zip"',
+        'Content-Disposition': 'attachment; filename="grabkit-export.zip"',
       },
     })
   } catch (err: unknown) {

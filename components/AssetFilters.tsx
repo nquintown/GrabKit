@@ -6,8 +6,6 @@ const FILTERS: { key: FilterType; label: string }[] = [
   { key: 'svg', label: 'SVG' },
   { key: 'image', label: 'Images' },
   { key: 'favicon', label: 'Favicons' },
-  { key: 'css', label: 'CSS' },
-  { key: 'js', label: 'JS' },
   { key: 'font', label: 'Polices' },
   { key: 'media', label: 'Médias' },
 ]

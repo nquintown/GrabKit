@@ -4,8 +4,6 @@ const TYPE_LABELS: Record<AssetType, string> = {
   svg: 'SVG',
   image: 'Images',
   favicon: 'Favicons',
-  css: 'CSS',
-  js: 'JavaScript',
   font: 'Polices',
   media: 'Médias',
 }
@@ -14,8 +12,6 @@ const TYPE_COLORS: Record<AssetType, string> = {
   svg: 'bg-violet-100 text-violet-700',
   image: 'bg-blue-100 text-blue-700',
   favicon: 'bg-amber-100 text-amber-700',
-  css: 'bg-pink-100 text-pink-700',
-  js: 'bg-yellow-100 text-yellow-700',
   font: 'bg-indigo-100 text-indigo-700',
   media: 'bg-red-100 text-red-700',
 }

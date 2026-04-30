@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'AssetGobbler — Scannez et exportez les assets de n\'importe quelle page web',
+  title: 'GrabKit — Récupérez les assets visuels de n\'importe quelle page web',
   description:
-    'Collez une URL, AssetGobbler scanne la page et liste tous les assets : SVG, images, CSS, JS, polices, médias. Filtrez, sélectionnez et téléchargez en ZIP.',
+    'Collez une URL, GrabKit scanne la page et liste tous les assets visuels : SVG, images, favicons, polices, médias. Filtrez, sélectionnez et téléchargez en ZIP.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

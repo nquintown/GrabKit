@@ -7,7 +7,7 @@ export async function fetchHtml(url: string): Promise<string> {
     response = await fetch(url, {
       signal: controller.signal,
       headers: {
-        'User-Agent': 'AssetGobbler/1.0 (asset-scanner; +https://assetgobbler.dev)',
+        'User-Agent': 'GrabKit/1.0 (asset-scanner; +https://grabkit.dev)',
         Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'fr,en;q=0.9',
       },

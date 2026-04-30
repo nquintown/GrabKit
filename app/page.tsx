@@ -7,6 +7,7 @@ import ScanSummary from '@/components/ScanSummary'
 import AssetFilters from '@/components/AssetFilters'
 import AssetGrid from '@/components/AssetGrid'
 import LegalNotice from '@/components/LegalNotice'
+import HeroLottie from '@/components/HeroLottie'
 
 export default function Home() {
   const [loading, setLoading] = useState(false)
@@ -90,7 +91,7 @@ export default function Home() {
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      a.download = 'assetgobbler-export.zip'
+      a.download = 'grabkit-export.zip'
       a.click()
       URL.revokeObjectURL(url)
     } catch {
@@ -125,7 +126,7 @@ export default function Home() {
                 <path d="M8 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1Zm0 2a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm-1 3h2a1 1 0 0 1 1 1v4H7V7a1 1 0 0 1 0 0Zm-1 0v5H5V7h1Zm5 0h1v5h-1V7ZM7 5h2a.5.5 0 0 0 0-1H7a.5.5 0 0 0 0 1Z"/>
               </svg>
             </div>
-            <span className="text-sm font-semibold tracking-tight text-gray-900">AssetGobbler</span>
+            <span className="text-sm font-semibold tracking-tight text-gray-900">GrabKit</span>
           </div>
           <span className="hidden text-xs text-gray-400 sm:block">
             Scannez, filtrez, exportez
@@ -137,12 +138,13 @@ export default function Home() {
         {/* Hero */}
         {!result && (
           <div className="mb-10 text-center">
+            <HeroLottie />
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Scannez les assets<br className="hidden sm:block" /> d&apos;une page web
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-base text-gray-500">
-              Collez une URL — AssetGobbler extrait tous les assets : SVG, images, CSS, JS,
-              polices, médias. Filtrez, sélectionnez et exportez en ZIP.
+              Collez une URL et récupérez instantanément tous les assets visuels
+              d&apos;une page : SVG, images, favicons, polices et médias embarqués.
             </p>
           </div>
         )}
