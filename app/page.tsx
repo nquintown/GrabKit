@@ -8,6 +8,7 @@ import AssetFilters from '@/components/AssetFilters'
 import AssetGrid from '@/components/AssetGrid'
 
 import HeroLottie from '@/components/HeroLottie'
+import AdInterstitial from '@/components/AdInterstitial'
 
 export default function Home() {
   const [loading, setLoading] = useState(false)
@@ -17,6 +18,7 @@ export default function Home() {
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [downloading, setDownloading] = useState(false)
   const [copiedAll, setCopiedAll] = useState(false)
+  const [pendingAction, setPendingAction] = useState<(() => void) | null>(null)
 
   const handleScan = useCallback(async (url: string) => {
     setLoading(true)
@@ -156,7 +158,10 @@ export default function Home() {
               Analyser une page
             </p>
           )}
-          <UrlScanForm onScan={handleScan} loading={loading} />
+          <UrlScanForm
+            onScan={(url) => setPendingAction(() => () => handleScan(url))}
+            loading={loading}
+          />
         </div>
 
         {/* Error */}
@@ -220,6 +225,14 @@ export default function Home() {
         )}
       </main>
 
+      {/* Ad interstitial */}
+      {pendingAction && (
+        <AdInterstitial
+          onDownload={pendingAction}
+          onClose={() => setPendingAction(null)}
+        />
+      )}
+
       {/* Floating download bar */}
       {selected.size > 0 && (
         <div className="fixed bottom-0 inset-x-0 z-50 border-t border-gray-200 bg-white/95 px-4 py-3 shadow-lg backdrop-blur sm:px-6">
@@ -249,7 +262,7 @@ export default function Home() {
                 Tout sélectionner ({result?.totalAssets})
               </button>
               <button
-                onClick={downloadSelected}
+                onClick={() => setPendingAction(() => downloadSelected)}
                 disabled={downloading}
                 className="flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-1.5 text-sm font-semibold text-white hover:bg-gray-700 disabled:opacity-50"
               >
